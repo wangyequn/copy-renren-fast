@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DemoControlloer {
 	
-	@RequestMapping(value="/test",method=RequestMethod.GET)
+	@RequestMapping(value="/test",method=RequestMethod.POST)
 	public Map<String,String> init() {
 		Map<String,String> map = new HashMap<>();
 		map.put("text1", "text1");

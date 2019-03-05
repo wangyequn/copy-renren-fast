@@ -1,22 +1,33 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <el-button @click="startHacking">Start</el-button>
-    </div>
+<div id="app">
+  <img src="./assets/logo.png">
+  <div>
+    <el-button @click="startHacking">Start</el-button>
   </div>
+</div>
 </template>
 
 <script>
 export default {
+  computed: {
+    username() {
+      // 我们很快就会看到 `params` 是什么
+      return this.$route.params.username
+    }
+  },
   methods: {
-    startHacking () {
+    startHacking() {
       this.$notify({
         title: 'It works!',
         type: 'success',
         message: 'We\'ve laid the ground work for you. It\'s time for you to build something epic!',
         duration: 5000
       })
+    },
+    goBack() {
+      window.history.length > 1 ?
+        this.$router.go(-1) :
+        this.$router.push('/')
     }
   }
 }

@@ -7,7 +7,9 @@ import java.util.Scanner;
 import com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
+import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.FileOutConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
@@ -46,23 +48,25 @@ public class CodeGenerator {
      GlobalConfig gc = new GlobalConfig();
      String projectPath = System.getProperty("user.dir");
      gc.setOutputDir(projectPath + "/src/main/java");
-     gc.setAuthor("jobob");
+     gc.setAuthor("yequn");
+     // 覆盖之前文件
+     gc.setFileOverride(true);
      gc.setOpen(false);
      mpg.setGlobalConfig(gc);
 
      // 数据源配置
      DataSourceConfig dsc = new DataSourceConfig();
-     dsc.setUrl("jdbc:mysql://localhost:3306/ant?useUnicode=true&useSSL=false&characterEncoding=utf8");
+     dsc.setUrl("jdbc:mysql://localhost:3306/renren-fast-copy?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone = GMT");
      // dsc.setSchemaName("public");
-     dsc.setDriverName("com.mysql.jdbc.Driver");
+     dsc.setDriverName("com.mysql.cj.jdbc.Driver");
      dsc.setUsername("root");
-     dsc.setPassword("密码");
+     dsc.setPassword("root");
      mpg.setDataSource(dsc);
 
      // 包配置
      PackageConfig pc = new PackageConfig();
      pc.setModuleName(scanner("模块名"));
-     pc.setParent("com.baomidou.ant");
+     pc.setParent("cn.wangyequn.renrenfastcopyapi");
      mpg.setPackageInfo(pc);
 
      // 自定义配置
@@ -109,10 +113,10 @@ public class CodeGenerator {
      StrategyConfig strategy = new StrategyConfig();
      strategy.setNaming(NamingStrategy.underline_to_camel);
      strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-     strategy.setSuperEntityClass("com.baomidou.ant.common.BaseEntity");
-     strategy.setEntityLombokModel(true);
+     strategy.setSuperEntityClass("cn.wangyequn.renrenfastcopyapi.common.BaseEntity");
+     strategy.setEntityLombokModel(false);
      strategy.setRestControllerStyle(true);
-     strategy.setSuperControllerClass("com.baomidou.ant.common.BaseController");
+     strategy.setSuperControllerClass("cn.wangyequn.renrenfastcopyapi.common.BaseController");
      strategy.setInclude(scanner("表名"));
      strategy.setSuperEntityColumns("id");
      strategy.setControllerMappingHyphenStyle(true);
