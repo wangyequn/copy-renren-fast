@@ -1,7 +1,10 @@
 package cn.wangyequn.renrenfastcopyapi.sys.mapper;
 
-import cn.wangyequn.renrenfastcopyapi.sys.entity.Role;
+import java.util.List;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import cn.wangyequn.renrenfastcopyapi.sys.entity.Role;
 
 /**
  * <p>
@@ -12,5 +15,9 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-02-21
  */
 public interface RoleMapper extends BaseMapper<Role> {
+
+	List<Role> getListByResourceId(String resourceId);
+
+	List<Role> getRolesByUserId(String userId);
 
 }

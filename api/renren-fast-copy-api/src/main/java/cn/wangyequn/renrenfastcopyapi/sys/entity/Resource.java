@@ -3,6 +3,7 @@ package cn.wangyequn.renrenfastcopyapi.sys.entity;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import cn.wangyequn.renrenfastcopyapi.common.BaseEntity;
 
 /**

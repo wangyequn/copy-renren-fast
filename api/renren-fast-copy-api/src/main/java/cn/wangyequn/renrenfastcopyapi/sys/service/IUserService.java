@@ -1,8 +1,10 @@
 package cn.wangyequn.renrenfastcopyapi.sys.service;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.service.IService;
 
-import cn.wangyequn.renrenfastcopyapi.sys.entity.SysUser;
+import cn.wangyequn.renrenfastcopyapi.sys.entity.Role;
 import cn.wangyequn.renrenfastcopyapi.sys.entity.User;
 
 /**
@@ -15,6 +17,8 @@ import cn.wangyequn.renrenfastcopyapi.sys.entity.User;
  */
 public interface IUserService extends IService<User> {
 
-	SysUser getUserByName(String username);
+	User getUserByName(String username);
+	
 
+	List<Role> getRolesByUser(User user);
 }

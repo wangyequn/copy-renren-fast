@@ -1,7 +1,8 @@
 package cn.wangyequn.renrenfastcopyapi.sys.mapper;
 
-import cn.wangyequn.renrenfastcopyapi.sys.entity.Resource;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import cn.wangyequn.renrenfastcopyapi.sys.entity.Resource;
 
 /**
  * <p>
@@ -12,5 +13,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @since 2019-02-21
  */
 public interface ResourceMapper extends BaseMapper<Resource> {
-
+	
 }

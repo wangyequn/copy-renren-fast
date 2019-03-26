@@ -17,12 +17,13 @@ public class SysUser extends User implements UserDetails {
 	 */
 	private static final long serialVersionUID = 3543991511015519008L;
 
-	private SysUser(){
+	private SysUser() {
 		super();
 	}
-	public SysUser(User user) {
+
+	public SysUser(User user, List<Role> roles) {
 		this();
-		if(user!=null) {
+		if (user != null) {
 			super.setCreateTime(user.getCreateTime());
 			super.setDeleted(user.getDeleted());
 			super.setId(user.getId());
@@ -32,18 +33,24 @@ public class SysUser extends User implements UserDetails {
 			super.setStatus(user.getStatus());
 			super.setUsername(user.getUsername());
 		}
-		this.roles = new ArrayList<>();
+		if (roles != null) {
+			this.roles = roles;
+		} else {
+			this.roles = new ArrayList<>();
+		}
 
 	}
+
 	private List<Role> roles;
-	
+
+	// 获取用户所具有的角色
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<GrantedAuthority> authorities = new ArrayList<>();
-	    for (Role role : roles) {
-	        authorities.add(new SimpleGrantedAuthority(role.getCode()));
-	    }
-	    return authorities;
+		for (Role role : roles) {
+			authorities.add(new SimpleGrantedAuthority(role.getCode()));
+		}
+		return authorities;
 	}
 
 	@Override

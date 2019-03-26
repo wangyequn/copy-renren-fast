@@ -1,7 +1,10 @@
 package cn.wangyequn.renrenfastcopyapi.sys.service;
 
-import cn.wangyequn.renrenfastcopyapi.sys.entity.Resource;
+import java.util.List;
+
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import cn.wangyequn.renrenfastcopyapi.sys.entity.Resource;
 
 /**
  * <p>
@@ -12,5 +15,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2019-02-21
  */
 public interface IResourceService extends IService<Resource> {
-
+	
+	@Override
+	public List<Resource> list();
 }
